@@ -1,3 +1,5 @@
+﻿
+在redisCluster整合spring-cache 开发的一套缓存框架，模拟spring ehcache 的实现，由于redis 目前和spring结合并不好，但在大量使用的情况下，相信spring 未来会出具类似整合 ehcache 的api 过渡期大家有兴趣的可以研究研究，欢迎大家拍砖，使用过程遇到bug请速与我联系，优化调整
 
 本方案是结合spring-cache的注解进行开发的一个缓存框架，整合了guava 和redis 两种类型的缓存 guava 缓存较为简单，只需要引入相关的jar包即可，redisCluster 则需要在服务端创建redisCluster集群，此种集群采用ruby构建
 注意下面这个配置是创建一个cacheManager 用于引入spring-cache的注解 cachePut等 ，注意key-generator 是配置了默认的key生产规则，具体规则需要自己写代码实现，本方案中结合spring ehcache，采用默认key的生成策略为 “函数名+ 参数值”方式，多个参数继续叠加的方式 ，注意本方案中实现的自定义key生成器不支持参数为对象key值规则，当然你也可以使用spring el表达式来定义key的规则
